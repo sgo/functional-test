@@ -17,40 +17,17 @@
  * (www.historicfutures.com) and open sourced.
  */
  
-class TestingTests extends functionaltestplugin.FunctionalTestCase {
+package functionaltestplugin
+
+import com.gargoylesoftware.htmlunit.html.HtmlForm
+
+class RadioButtonsWrapper {
+    HtmlForm form
     
- 	void testTwitterSearch() {
-		get 'http://www.twitter.com'
-
-		click "Search"
-
-		assertStatus 200
-		assertContentContains "search"
-
-		form('searchForm') {
-			q = "#grails"
-			click "Search"
-		}
-
-		assertStatus 200
-		
-		assertTitleContains "#grails"
-		assertTitleContains "twitter search"
-		assertContentContains "#grails"
-	}
-	
-	void testPostBody() {
-	    post("http://search.twitter.com/search") {
-	        body {
-	            "q=#grails"
-	        }
-	    }
-	    
-		assertStatus 200
-		
-		assertTitleContains "#grails"
-		assertTitleContains "twitter search"
-		assertContentContains "#grails"
-	}
+    RadioButtonsWrapper(HtmlForm form) { this.form = form }
+    
+    def getProperty(String key) { 
+        def buttons = form.getRadioButtonsByName(key) 
+        return buttons ? new RadioGroupWrapper(key, buttons) : null
+    }
 }
-

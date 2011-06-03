@@ -17,7 +17,7 @@
  */
  
  class FunctionalTestGrailsPlugin {
-    def version = "1.2.7"
+    def version = "1.2.7-with-htmlunit-2.8"
     def dependsOn = [:]
     def scopes = [ includes: "functional_test" ]
 

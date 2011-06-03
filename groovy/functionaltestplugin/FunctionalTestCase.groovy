@@ -45,8 +45,8 @@ import com.gargoylesoftware.htmlunit.Page
 import grails.util.GrailsUtil
 
 import junit.framework.AssertionFailedError
-import com.gargoylesoftware.htmlunit.util.NameValuePair
 import com.gargoylesoftware.htmlunit.html.HtmlElement
+import com.gargoylesoftware.htmlunit.util.NameValuePair
 
 class FunctionalTestCase extends GroovyTestCase 
 implements WebWindowListener, GroovyInterceptable, 
