@@ -544,7 +544,7 @@ implements WebWindowListener, GroovyInterceptable,
 	def click(anchor) {
 	    def a = byId(anchor)
 	    try {
-	        if (!a) a = page.getFirstAnchorByText(anchor)
+	        if (!a) a = page.getAnchorByText(anchor)
         } catch (ElementNotFoundException e) {
         }
         if (!a) {
